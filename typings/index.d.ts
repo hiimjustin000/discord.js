@@ -991,6 +991,26 @@ declare module 'discord.js' {
     public fetch(force?: boolean): Promise<Message>;
     public pin(options?: { reason?: string }): Promise<Message>;
     public react(emoji: EmojiIdentifierResolvable): Promise<MessageReaction>;
+    public quote(
+      content?: StringResolvable,
+      options?: MessageOptions | MessageAdditions | (MessageOptions & { split?: false }) | MessageAdditions,
+    ): Promise<Message>;
+    public quote(
+      content?: StringResolvable,
+      options?: (MessageOptions & { split: true | SplitOptions }) | MessageAdditions,
+    ): Promise<Message[]>;
+    public quote(
+      options?:
+        | MessageOptions
+        | MessageAdditions
+        | APIMessage
+        | (MessageOptions & { split?: false })
+        | MessageAdditions
+        | APIMessage,
+    ): Promise<Message>;
+    public quote(
+      options?: (MessageOptions & { split: true | SplitOptions }) | MessageAdditions | APIMessage,
+    ): Promise<Message[]>;
     public reply(
       content?: StringResolvable,
       options?: MessageOptions | MessageAdditions | (MessageOptions & { split?: false }) | MessageAdditions,
